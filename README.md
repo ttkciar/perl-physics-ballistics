@@ -1,2 +1,2 @@
 # perl-physics-ballistics
-Internal, External, Termainal Ballistics Formulae, in Perl
+Internal, External, Terminal Ballistics Formulae, in Perl
