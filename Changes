@@ -3,3 +3,7 @@
 
 1.00     2017-07-08
 - First release.  Finally have it repackaged and suitable for general use.
+
+1.01     2017-07-08
+- Fixed Physics::Ballistics package name.
+
