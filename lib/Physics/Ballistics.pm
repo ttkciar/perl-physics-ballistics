@@ -1,4 +1,4 @@
-package Physics::Ballistics::Terminal;
+package Physics::Ballistics;
 use strict;
 use warnings;
 use vars qw($VERSION $PI);
