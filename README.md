@@ -45,7 +45,7 @@ development.
 
 # CONSTANTS
 
-## %CASE\_CAPACITY\_GRAINS
+## %CASE_CAPACITY_GRAINS
 
 This hash table maps the names of various cartridges to their volumes, in grains of water.
 
@@ -55,7 +55,7 @@ Powder capacities will vary considerably depending on powder type, but multiplyi
 
 # FUNCTIONS
 
-## cartridge\_capacity (bullet\_diameter\_mm, base\_diameter\_mm, case\_len\_mm, psi, \[want\_powder\_bool\])
+## cartridge_capacity (bullet_diameter_mm, base_diameter_mm, case_len_mm, psi, \[want_powder_bool\])
 
 This function estimates the internal capacity (volume) of a rifle cartridge, assuming typical brass material construction.
 
@@ -69,19 +69,19 @@ This function is the original work of the author.
 
 DISCLAIMER:  Do not use this as a guide for handloading!  Get a Speer Reloading Manual or similar.  If you must use this function, start at least 15% lower than the function indicates and work your way up slowly.  Author is not responsible for idiots blasting copper case-bits into their own faces.
 
-> parameter: (float) bullet\_diameter\_mm is the width of the bullet (in mm)
+> parameter: (float) bullet_diameter_mm is the width of the bullet (in mm)
 >
-> parameter: (float) base\_diameter\_mm is the width of the case at its base, NOT its rim (in mm)
+> parameter: (float) base_diameter_mm is the width of the case at its base, NOT its rim (in mm)
 >
-> parameter: (float) case\_len\_mm is the overall length of the case, including rim and neck (in mm)
+> parameter: (float) case_len_mm is the overall length of the case, including rim and neck (in mm)
 >
 > parameter: (float) psi is the peak pressure tolerated by the cartridge (in psi)
 >
-> parameter: (boolean) OPTIONAL: set want\_powder\_bool to a True value to approximate powder capacity instead of water capacity.  This is intrinsically inaccurate, since different powders have different weights, but it does okay for typical powders.
+> parameter: (boolean) OPTIONAL: set want_powder_bool to a True value to approximate powder capacity instead of water capacity.  This is intrinsically inaccurate, since different powders have different weights, but it does okay for typical powders.
 >
 > returns: (int) cartridge capacity (in grains)
 
-## empty\_brass (bullet\_diameter\_mm, base\_diameter\_mm, case\_len\_mm, psi)
+## empty_brass (bullet_diameter_mm, base_diameter_mm, case_len_mm, psi)
 
 This function estimates the weight of an empty rifle cartridge, assuming typical brass material construction.  This is just the weight of the case metal, without primer, bullet, or powder.
 
@@ -101,19 +101,19 @@ Compare to known dimensions and weights:
     7.62x51mm: 182 gr, empty_brass predicts 181 = 0.995 actual, 0.5% error
     12.7x99mm: 847 gr, empty_brass predicts 830 = 0.980 actual, 2.0% error
 
-> parameter: (float) bullet\_diameter\_mm is the width of the bullet (in mm)
+> parameter: (float) bullet_diameter_mm is the width of the bullet (in mm)
 >
-> parameter: (float) base\_diameter\_mm is the width of the case at its base, NOT its rim (in mm)
+> parameter: (float) base_diameter_mm is the width of the case at its base, NOT its rim (in mm)
 >
-> parameter: (float) case\_len\_mm is the overall length of the case, including rim and neck (in mm)
+> parameter: (float) case_len_mm is the overall length of the case, including rim and neck (in mm)
 >
 > parameter: (float) psi is the peak pressure tolerated by the cartridge (in psi)
 >
-> parameter: (boolean) OPTIONAL: set want\_powder\_bool to a True value to approximate powder capacity instead of water capacity.  This is intrinsically inaccurate, since different powders have different weights, but it does okay for typical powders.
+> parameter: (boolean) OPTIONAL: set want_powder_bool to a True value to approximate powder capacity instead of water capacity.  This is intrinsically inaccurate, since different powders have different weights, but it does okay for typical powders.
 >
 > returns: (int) cartridge weight (in grains)
 
-## gunfire (psi, bullet\_diameter\_mm, barrel\_length\_inches, cartridge\_diameter\_mm, cartridge\_length\_mm, bullet\_mass\_gr)
+## gunfire (psi, bullet_diameter_mm, barrel_length_inches, cartridge_diameter_mm, cartridge_length_mm, bullet_mass_gr)
 
 The gunfire function attempts to approximate the performance of a cartridge/bullet/barrel combination in terms of muzzle velocity (and some related attributes).
 
@@ -155,7 +155,7 @@ Compare to known cartridge/bullet/barrel performance:
         actual velocity:     2660 ft/s
         gunfire() predicts:  2431 ft/s (9% error)
 
-In particular, take the "r,m" output field with a huge grain of salt.  For a more accurate number, use Physics::Ballistics::External::flight\_simulator().  The only advantage of "r,m" is that it is much much faster to derive (25 microseconds for gunfire(), vs an eighth of a second for flight\_simulator() on my hardware).
+In particular, take the "r,m" output field with a huge grain of salt.  For a more accurate number, use Physics::Ballistics::External::flight_simulator().  The only advantage of "r,m" is that it is much much faster to derive (25 microseconds for gunfire(), vs an eighth of a second for flight_simulator() on my hardware).
 
 > parameter: (float) peak chamber pressure (in psi, NOT cup!)
 >
@@ -177,13 +177,13 @@ In particular, take the "r,m" output field with a huge grain of salt.  For a mor
 >     r,m: (int) approx range achieved when fired at a 45 degree angle (in meters)
 >     tm:  (float) time elapsed from ignition to bullet's egress from barrel (in seconds)
 
-## ogival\_volume (length\_mm, radius\_mm, \[C,\] \[granularity\_mm\])
+## ogival_volume (length_mm, radius_mm, \[C,\] \[granularity_mm\])
 
 This function calculates the volume of a Haak-series ogival nose shape, as often used for areodynamically
 streamlined projectiles.  It is useful (for instance) for determining the mass of a nose, when nose 
 composition (and therefore density) is known.
 
-qv: http://en.wikipedia.org/wiki/Nose\_cone\_design#Haack\_series
+qv: http://en.wikipedia.org/wiki/Nose_cone_design#Haack_series
 
 Quoting from that article:
 
@@ -207,7 +207,7 @@ Quoting from that article:
 >
 > returns: (float) volume (in cc)
 
-## powley (bore\_diameter\_inches, case\_base\_diameter\_inches, case\_length\_inches, barrel\_1\_length\_inches, barrel\_2\_length\_inches)
+## powley (bore_diameter_inches, case_base_diameter_inches, case_length_inches, barrel_1_length_inches, barrel_2_length_inches)
 
 This function implements Powley's formula for approximating the projectile velocity gained or lost from a change in barrel length.
 
@@ -231,23 +231,23 @@ Example of use:
 >
 > returns: (float) the ratio of the muzzle velocities (unitless)
 
-## cup2psi\_linear (cup\[, want\_range\[, fractional\_deviation\]\])
+## cup2psi_linear (cup\[, want_range\[, fractional_deviation\]\])
 
-Approximates peak chamber pressure, in psi, given peak chamber CUP (copper crush test).  Since there is a degree of error present in both kinds of pressure tests, this will often disagree with published measurements.  To offset this, a range may be requested by passing a non-false second parameter.  This will cause three values to be returned:  A low-end psi estimate, the median psi estimate (which is the same as the value returned when called without a want\_range parameter), and a high-end psi estimate.  The degree of variation may be adjusted by passing a value between 0 and 1 as the third argument (default is 0.05).
+Approximates peak chamber pressure, in psi, given peak chamber CUP (copper crush test).  Since there is a degree of error present in both kinds of pressure tests, this will often disagree with published measurements.  To offset this, a range may be requested by passing a non-false second parameter.  This will cause three values to be returned:  A low-end psi estimate, the median psi estimate (which is the same as the value returned when called without a want_range parameter), and a high-end psi estimate.  The degree of variation may be adjusted by passing a value between 0 and 1 as the third argument (default is 0.05).
 
-Based on linear formula from Denton Bramwell's \_Correlating PSI and CUP\_, with curve-fitting enhancements by module author.
+Based on linear formula from Denton Bramwell's _Correlating PSI and CUP_, with curve-fitting enhancements by module author.
 
-## cup2psi (cup\[, want\_range\[, fractional\_deviation\]\])
+## cup2psi (cup\[, want_range\[, fractional_deviation\]\])
 
-Approximates peak chamber pressure, in psi, given peak chamber CUP (copper crush test).  Since there is a degree of error present in both kinds of pressure tests, this will often disagree with published measurements.  To offset this, a range may be requested by passing a non-false second parameter.  This will cause three values to be returned:  A low-end psi estimate, the median psi estimate (which is the same as the value returned when called without a want\_range parameter), and a high-end psi estimate.  The degree of variation may be adjusted by passing a value between 0 and 1 as the third argument (default is 0.04).
+Approximates peak chamber pressure, in psi, given peak chamber CUP (copper crush test).  Since there is a degree of error present in both kinds of pressure tests, this will often disagree with published measurements.  To offset this, a range may be requested by passing a non-false second parameter.  This will cause three values to be returned:  A low-end psi estimate, the median psi estimate (which is the same as the value returned when called without a want_range parameter), and a high-end psi estimate.  The degree of variation may be adjusted by passing a value between 0 and 1 as the third argument (default is 0.04).
 
 Based on exponential formula from http://kwk.us/pressures.html, with enhancements by module author.
 
-## recoil\_mbt (gun\_mass\_kg, projectile\_mass\_kg, projectile\_velocity\_mps, \[gas\_mass\_kg,\] \[gas\_velocity\_mps,\] \[recoil\_distance\_cm,\] \[english\_or\_metric\_str\])
+## recoil_mbt (gun_mass_kg, projectile_mass_kg, projectile_velocity_mps, \[gas_mass_kg,\] \[gas_velocity_mps,\] \[recoil_distance_cm,\] \[english_or_metric_str\])
 
 Approximates the recoil force of a battletank's large-bore main gun (or any other large-bore, high-velocity gun).
 
-Based on formula from Ogorkiewicz's \_Design and Development of Fighting Vehicles\_, page 58.
+Based on formula from Ogorkiewicz's _Design and Development of Fighting Vehicles_, page 58.
 
 As a rule of thumb, the recoil force of an MBT-proportioned vehicle's main gun should not exceed twice the vehicle's mass.
 
@@ -273,7 +273,7 @@ The gun mass includes all of the parts moving against the vechicle's recoil mech
 
 The accuracy of these estimating functions can be improved, and I intend to improve them.
 
-In particular, empty\_brass should be made to take a "parent case" option, because it tends to underestimate the weight of cartridges which are based on other cartridges which have been trimmed or necked down.
+In particular, empty_brass should be made to take a "parent case" option, because it tends to underestimate the weight of cartridges which are based on other cartridges which have been trimmed or necked down.
 
 
 # NAME
@@ -302,7 +302,7 @@ development.
 
 # FUNCTIONS
 
-## ebc (mass\_grains, diameter\_inches, \[shape,\] \[form\_factor\])
+## ebc (mass_grains, diameter_inches, \[shape,\] \[form_factor\])
 
 Attempts to predict the G1 ballistic coefficient of a projectile, based on its
 mass, width, and shape.  Useful for predicting the ballistic behavior of
@@ -382,11 +382,11 @@ The shape table currently contains the following entities, with the given form b
     'varminter'         => 232, # Catch-all for many light hollowpoints with very large expanding cavities, for varminting
     'fmj_2'             => 268  # Woodleigh's FMJ projectiles, which are shape-optimized for travel in big game meat and bone, instead of air.
 
-This hash table is exported as %Physics::Ballistics::External::Bullet\_Form\_Factors\_H,
+This hash table is exported as %Physics::Ballistics::External::Bullet_Form_Factors_H,
 so that users and modules may easily modify/add its content without resorting
 to editing sources.
 
-## flight\_simulator (drag\_function, ballistic\_coefficient, muzzle\_velocity\_fps, sight\_height\_inches, shot\_angle\_deg, \[bore\_to\_sight\_angle\_deg,\] zero\_range\_yards, wind\_speed\_fps, wind\_angle\_deg, \[max\_range\_yards\])
+## flight_simulator (drag_function, ballistic_coefficient, muzzle_velocity_fps, sight_height_inches, shot_angle_deg, \[bore_to_sight_angle_deg,\] zero_range_yards, wind_speed_fps, wind_angle_deg, \[max_range_yards\])
 
 Attempts to predict the flight characteristics of a projectile in flight, providing a data point for every yard of progress it makes downrange.
 
@@ -396,25 +396,25 @@ On my system it takes about an eighth of a second to simulate a 1200-yard flight
 
 Note that most manufacturers report G1 ballistic coefficients.  Using the wrong drag function for a given ballistic coefficient will produce ludicrously incorrect results.
 
-To ascertain the correct bore elevation to hit a target at a specific distance, change the shot\_angle\_deg parameter on successive calls to flight\_simulator(), and converge on drop\_inches == 0.0 at the given range via binary search.  I should get around to providing a function for that at some point (GNU-Ballistics has such a function, I just didn't port it).
+To ascertain the correct bore elevation to hit a target at a specific distance, change the shot_angle_deg parameter on successive calls to flight_simulator(), and converge on drop_inches == 0.0 at the given range via binary search.  I should get around to providing a function for that at some point (GNU-Ballistics has such a function, I just didn't port it).
 
-> parameter: (str) drag\_function is exactly one of: 'G1', 'G2', 'G5', 'G6', 'G7', 'G8'.
+> parameter: (str) drag_function is exactly one of: 'G1', 'G2', 'G5', 'G6', 'G7', 'G8'.
 >
-> parameter: (float) ballistic\_coefficient, qv: http://en.wikipedia.org/wiki/Ballistic\_coefficient
+> parameter: (float) ballistic_coefficient, qv: http://en.wikipedia.org/wiki/Ballistic_coefficient
 >
-> parameter: (float) muzzle\_velocity\_fps is the velocity of the projectile at time=0 (feet per second)
+> parameter: (float) muzzle_velocity_fps is the velocity of the projectile at time=0 (feet per second)
 >
-> parameter: (float) sight\_height\_inches is the distance from the center of the sight to the center of the bore (inches)
+> parameter: (float) sight_height_inches is the distance from the center of the sight to the center of the bore (inches)
 >
-> parameter: (float) shot\_angle\_deg is the bore elevation (degrees, 0 = horizontal, 90 = vertical)
+> parameter: (float) shot_angle_deg is the bore elevation (degrees, 0 = horizontal, 90 = vertical)
 >
-> parameter: (float) OPTIONAL: bore\_to\_sight\_angle\_deg is the difference in angle between the bore elevation and the sight elevation.  Set to undef or -1 to have flight\_simulator() calculate it for you from the zero\_range\_yards parameter (degrees)
+> parameter: (float) OPTIONAL: bore_to_sight_angle_deg is the difference in angle between the bore elevation and the sight elevation.  Set to undef or -1 to have flight_simulator() calculate it for you from the zero_range_yards parameter (degrees)
 >
-> parameter: (float) wind\_speed\_fps is the velocity of the wind (feet per second)
+> parameter: (float) wind_speed_fps is the velocity of the wind (feet per second)
 >
-> parameter: (float) wind\_angle\_deg is the direction the wind is blowing (degrees, 0 = shooting directly into wind, 90 = wind is blowing from the right, perpendicular to flight path, -90 = wind is blowing from the left, perpendicular to flight path)
+> parameter: (float) wind_angle_deg is the direction the wind is blowing (degrees, 0 = shooting directly into wind, 90 = wind is blowing from the right, perpendicular to flight path, -90 = wind is blowing from the left, perpendicular to flight path)
 >
-> parameter: (float) OPTIONAL: max\_range\_yards is the maximum range to which the flight will be simulated (yards, default is 2000)
+> parameter: (float) OPTIONAL: max_range_yards is the maximum range to which the flight will be simulated (yards, default is 2000)
 >
 > returns: a reference to an array of hash references, one per yard, denoting the projectile's disposition when it reaches that range.  All data fields are floating-point numbers:
 >
@@ -428,29 +428,29 @@ To ascertain the correct bore elevation to hit a target at a specific distance, 
 >     vel_horiz_fps   The horizontal component of the velocity of the projectile, in feet per second.
 >     vel_vert_fps    The vertical component of the velocity of the projectile, in feet per second.
 
-## g1\_drag (velocity\_fps)
+## g1_drag (velocity_fps)
 
 The canonical function for computing instantaneous velocity drop at a given velocity, per the G1 drag model.
 
-> parameter: (float) velocity\_fps is the velocity of the projectile (in feet per second)
+> parameter: (float) velocity_fps is the velocity of the projectile (in feet per second)
 >
 > returns: (float) the deceleration of the projectile from drag (in feet per second per second)
 
-## muzzle\_energy (mass\_grains, velocity\_fps, \[want\_joules\_bool\])
+## muzzle_energy (mass_grains, velocity_fps, \[want_joules_bool\])
 
 A convenience function for computing kinetic energy from mass and velocity.
 Despite its name, it is useful for computing the kinetic energy of a projectile
 at any point during its flight.
 
-> parameter: (float) mass\_grains is the mass of the projectile (in grains)
+> parameter: (float) mass_grains is the mass of the projectile (in grains)
 >
-> parameter: (float) velocity\_fps is the velocity of the projectile (in feet per second)
+> parameter: (float) velocity_fps is the velocity of the projectile (in feet per second)
 >
-> parameter: (boolean) OPTIONAL: set want\_joules\_bool to a True value to get Joules instead of foot-pounds (boolean, default=False)
+> parameter: (boolean) OPTIONAL: set want_joules_bool to a True value to get Joules instead of foot-pounds (boolean, default=False)
 >
 > returns: (float) the kinetic energy of the projectile (in foot-pounds or Joules)
 
-## muzzle\_velocity\_from\_energy (mass\_grains, energy\_ftlbs)
+## muzzle_velocity_from_energy (mass_grains, energy_ftlbs)
 
 A convenience function for computing velocity from mass and kinetic energy.
 Despite its name, it is useful for computing the velocity of a projectile
@@ -458,9 +458,9 @@ at any point during its flight.
 
 If all you have is Joules, divide by 1.3558179 to get foot-pounds.
 
-> parameter: (float) mass\_grains is the mass of the projectile (in grains)
+> parameter: (float) mass_grains is the mass of the projectile (in grains)
 >
-> parameter: (float) energy\_ftlbs is the kinetic energy of the projectile (in foot-pounds)
+> parameter: (float) energy_ftlbs is the kinetic energy of the projectile (in foot-pounds)
 >
 > returns: (float) the velocity of the projectile (in feet per second)
 
@@ -588,11 +588,11 @@ development.
 
 # FUNCTIONS
 
-## anderson (length\_cm, diam\_cm, vel\_kps, \[penetrator\_material,\] \[deg\_angle,\] \[scaling\_factor\])
+## anderson (length_cm, diam_cm, vel_kps, \[penetrator_material,\] \[deg_angle,\] \[scaling_factor\])
 
 Attempts to estimate how deeply a long-rod projectile will penetrate into RHA (semi-infinite penetration).
 
-This function is based on Anderson's \_Accuracy of Perforation Equations\_, less 11% correction per that paper's conclusions, and including adjustments from Lakowski for scale, material, and backsurface effects.
+This function is based on Anderson's _Accuracy of Perforation Equations_, less 11% correction per that paper's conclusions, and including adjustments from Lakowski for scale, material, and backsurface effects.
 qv: http://208.84.116.223/forums/index.php?showtopic=10482&st=110
 
 ONLY VALID IN HYPERVELOCITY DOMAIN.
@@ -651,12 +651,12 @@ Calculates the volumes, mass, and volume-to-mass ratio of a hollow box of rectan
 > >
 > > \* (float) ratio of interior volume to mass (cc/g)
 
-## heat\_dop(diameter\_mm, standoff\_distance, \[target\_density,\] \[precision\_bool\], \[target\_hardness\_bhn\])
+## heat_dop(diameter_mm, standoff_distance, \[target_density,\] \[precision_bool\], \[target_hardness_bhn\])
 
 Attempts to predict the depth of penetration of a copper-lined conical shaped charge into steel.
 
-Based on Ogorkiewicz's book, \_Design and Development of Fighting Vehicles\_, and
-modified as per \_Journal of Battlefield Technology\_ Vol 1-1 pp 1.  A copy of 
+Based on Ogorkiewicz's book, _Design and Development of Fighting Vehicles_, and
+modified as per _Journal of Battlefield Technology_ Vol 1-1 pp 1.  A copy of 
 the JBT chart may be found at:
 
 http://ciar.org/ttk/mbt/news/news.smm.ww2-armor-plate.de5bf54f.0110271532.871cbf@posting.google.com.txt
@@ -680,7 +680,7 @@ http://www.globalsecurity.org/military/systems/munitions/bullets2-shaped-charge.
 >
 > returns: (int) depth of penetration (in mm)
 
-## me2te (mass\_efficiency, density)
+## me2te (mass_efficiency, density)
 
 Given the mass efficiency of a material, returns its thickness efficiency.
 
@@ -710,7 +710,7 @@ depending on which is known.
 >
 > returns: (float) armor material thickness efficiency (unitless, factor relative to RHA)
 
-## me2ce (mass\_efficiency, cost\_usd\_per\_pound)
+## me2ce (mass_efficiency, cost_usd_per_pound)
 
 Given the mass efficiency of a material, returns its cost efficiency.
 
@@ -727,7 +727,7 @@ of this module.
 >
 > returns: (float) armor material cost efficiency (unitless, factor relative to RHA)
 
-## me2cem (mass\_efficiency, cost\_usd\_per\_pound)
+## me2cem (mass_efficiency, cost_usd_per_pound)
 
 Given the mass efficiency of a material, returns its cost efficiency relative to mild steel.
 
@@ -739,11 +739,11 @@ See the description of me2ce() for more explanation.
 >
 > returns: (float) armor material cost efficiency (unitless, factor relative to mild steel)
 
-## odermatt (length\_cm, diam\_cm, vel\_mps, target\_density, target\_uts\_kpsi, rod\_density, deg\_angle, kps\_drop\_per\_km, range\_km, target\_thickness\_cm, \[tip\_length\_cm, kA1, kA2\])
+## odermatt (length_cm, diam_cm, vel_mps, target_density, target_uts_kpsi, rod_density, deg_angle, kps_drop_per_km, range_km, target_thickness_cm, \[tip_length_cm, kA1, kA2\])
 
 Attempts to estimate perforation limit for a long-rod projectile penetrating RHA.  Produces more accurate results than Anderson, but also requires more hard-to-get information, and doesn't exactly measure the same thing (perforation limit, vs depth into semi-infinite target).
 
-This function is based on Lanz and Odermatt's paper \_Post Perforation Length & Velocity of KE Projectiles with single Oblique Targets\_, published in the 15th International Symposium of Ballistics.
+This function is based on Lanz and Odermatt's paper _Post Perforation Length & Velocity of KE Projectiles with single Oblique Targets_, published in the 15th International Symposium of Ballistics.
 
 ONLY VALID IN HYPERVELOCITY DOMAIN.
 
@@ -773,7 +773,7 @@ Only valid for penetrator length/diameter ratios of 10.0 or higher, unless kA1 a
 >
 > returns: (float) Target's perforation limit (in cm)
 
-## pc (mass\_grains, velocity\_fps, distance\_feet, diameter\_inches, bullet\_shape\_str, \[target\_material\])
+## pc (mass_grains, velocity_fps, distance_feet, diameter_inches, bullet_shape_str, \[target_material\])
 
 Attempts to estimate how deeply a small-arms projectile will penetrate into a target.
 
@@ -823,7 +823,7 @@ Not recommended for unjacketed lead projectiles.
 > >
 > > \* "du":  Depleted uranium alloy core (99.25% U / 0.75% Ti), with truncated-cone nose shape.
 > >
-> > The hash table mapping these type strings to their numeric penetration factors is available as %Physics::Ballistics::Terminal::Penetrator\_Types\_H, for ease of reference and modification.
+> > The hash table mapping these type strings to their numeric penetration factors is available as %Physics::Ballistics::Terminal::Penetrator_Types_H, for ease of reference and modification.
 >
 > parameter: (OPTIONAL) (string) target material.  Valid target materials are:
 >
@@ -843,7 +843,7 @@ Not recommended for unjacketed lead projectiles.
 >
 > returns: (float) estimated depth of penetration (in mm), rounded to the nearest tenth of a mm.
 
-## pc\_simple (mass\_grains, velocity\_fps, diameter\_inches, shape\_str)
+## pc_simple (mass_grains, velocity_fps, diameter_inches, shape_str)
 
 Simple penetration calculator.  Attempts to estimate how deeply a small-arms projectile
 will penetrate into RHA.  Optimized for projectiles near 7.5mm in diameter, works okay
@@ -887,13 +887,13 @@ Not recommended for unjacketed lead projectiles.
 > >
 > > \* "du":  Depleted uranium alloy core (99.25% U / 0.75% Ti), with truncated-cone nose shape.
 > >
-> > The hash table mapping these type strings to their numeric penetration factors is available as %Physics::Ballistics::Terminal::Penetrator\_Types\_H, for ease of reference and modification.
+> > The hash table mapping these type strings to their numeric penetration factors is available as %Physics::Ballistics::Terminal::Penetrator_Types_H, for ease of reference and modification.
 >
 > parameter: (OPTIONAL) (string or float) thickness efficiency of target material (as ratio to RHA).  Defaults to 1.0 (target is RHA).
 >
 > returns: (float) estimated depth of penetration into RHA (in mm), rounded over to the nearest tenth of a mm.
 
-## hits\_score (mass\_grains, velocity\_fps, diameter\_inches)
+## hits_score (mass_grains, velocity_fps, diameter_inches)
 
 Computes a projectile's Hornady Index of Terminal Standards (H.I.T.S.) score, an 
 approximation of its lethality.
@@ -918,7 +918,7 @@ http://www.hornady.com/hits/calculator
 >
 > returns: (integer) lethality (HITS score, qv table in http://www.hornady.com/hits)
 
-## poncelet(diameter\_mm, mass\_grains, velocity\_fps, target\_shear\_strength\_psi, target\_density)
+## poncelet(diameter_mm, mass_grains, velocity_fps, target_shear_strength_psi, target_density)
 
 Jean-Victor Poncelet was one of the first to attempt mathematical models of
 depth of penetration.  His formula, developed in the 19th century, attempts
@@ -940,7 +940,7 @@ ONLY VALID IN BALLISTIC DOMAIN.
 >
 > returns: (int) depth of penetration (in mm)
 
-## te2me (thickness\_efficiency, density)
+## te2me (thickness_efficiency, density)
 
 Given the mass efficiency of a material, returns its thickness efficiency.
 
@@ -952,7 +952,7 @@ See the description of me2te() for more explanation.
 >
 > returns: (float) armor material mass efficiency (unitless, factor relative to RHA)
 
-## lethality (grains, velocity\_fps)
+## lethality (grains, velocity_fps)
 
 Approximates the lethality of a projectile impacting a living creature.
 
@@ -966,7 +966,7 @@ Its parameters and output are likely to change in incompatible ways in future re
 >
 > returns: (float) lethality relative to 5.56x45mm at point blank range.
 
-## hv2bhn (hardness\_vickers)
+## hv2bhn (hardness_vickers)
 
 Given a Vickers hardness rating, approximates the equivalent Brinell Hardness Number (via 10/3000 WC method).
 
@@ -976,7 +976,7 @@ Vickers can be converted to other hardness ratings by first converting to BHN, a
 >
 > returns: (float) Brinell Hardness Number (BHN)
 
-## bhn2hv (brinell\_hardness\_number)
+## bhn2hv (brinell_hardness_number)
 
 Given a Brinell Hardness Number hardness rating (via 10/3000 WC method), approximates the equivalent Vickers Hardness rating.
 
@@ -984,7 +984,7 @@ Given a Brinell Hardness Number hardness rating (via 10/3000 WC method), approxi
 >
 > returns: (float) Vickers Hardness rating
 
-## hrc2bhn (rockwell\_hardness\_C)
+## hrc2bhn (rockwell_hardness_C)
 
 Given a Rockwell Hardness C rating, approximates the equivalent Brinell Hardness Number (via 10/3000 WC method).
 
@@ -994,7 +994,7 @@ HRC can be converted to other hardness ratings by first converting to BHN, and t
 >
 > returns: (float) Brinell Hardness Number (BHN)
 
-## bhn2hrc (brinell\_hardness\_number)
+## bhn2hrc (brinell_hardness_number)
 
 Given a Brinell Hardness Number hardness rating (via 10/3000 WC method), approximates the equivalent Rockwell Hardness C rating.
 
@@ -1004,7 +1004,7 @@ Approximation is accurate to within 5% near the low end, 2% everywhere else.
 >
 > returns: (float) Rockwell Hardness C rating
 
-## psi2bhn (pounds\_per\_square\_inch)
+## psi2bhn (pounds_per_square_inch)
 
 Given the ultimate tensile strength of a steel formulation in PSI, approximates the equivalent Brinell Hardness Number (via 10/3000 WC method).
 
@@ -1016,7 +1016,7 @@ Approximation is accurate to within 2%.
 >
 > returns: (float) Brinell Hardness Number (BHN)
 
-## bhn2psi (brinell\_hardness\_number)
+## bhn2psi (brinell_hardness_number)
 
 Given a Brinell Hardness Number hardness rating (via 10/3000 WC method), approximates the equivalent steel ultimate tensile strength in pounds per square inch.
 
@@ -1032,7 +1032,7 @@ The pc function needs a lot of improvement.
 
 Need a pc function for larger penetrators (for the ballistic domain, as anderson and odermatt suffices for hypervelocity domain).
 
-The stabilization\_distance\_meters function should take projectile composition into account.
+The stabilization_distance_meters function should take projectile composition into account.
 
 To be really useful the lethality function needs to take wobble, fragmentation and permanent wound cavity volume into account (per Fackler).
 
