@@ -130,7 +130,7 @@ development.
 Attempts to estimate how deeply a long-rod projectile will penetrate into RHA (semi-infinite penetration).
 
 This function is based on Anderson's _Accuracy of Perforation Equations_, less 11% correction per that paper's conclusions, and including adjustments from Lakowski for scale, material, and backsurface effects.
-qv: http://208.84.116.223/forums/index.php?showtopic=10482&st=110
+qv: L<http://www.tank-net.com/forums/index.php?showtopic=10482&&page=7>
 
 ONLY VALID IN HYPERVELOCITY DOMAIN.
 
@@ -169,7 +169,7 @@ returns: (float) Depth of penetration (in cm)
 =cut
 
 # Given attributes of a hypervelocity-domain long-rod penetrator, returns penetration into RHA, in cm.
-# Based on Anderson TN, from _Accuracy of Perforation Equations_, less 11% correction per that paper's conclusions, and including adjustments from Lakowski for scale, material, and backsurface effects, qv: http://63.99.108.76/forums/index.php?showtopic=8332&pid=156211&mode=threaded&show=&st=& and http://63.99.108.76/forums/index.php?showtopic=10482&st=100
+# Based on Anderson TN, from _Accuracy of Perforation Equations_, less 11% correction per that paper's conclusions, and including adjustments from Lakowski for scale, material, and backsurface effects, qv: http://tank-net.com/forums/index.php?showtopic=8332&pid=156211&mode=threaded&show=&st=& and http://63.99.108.76/forums/index.php?showtopic=10482&st=100
 # NOTE: only valid in hypervelocity domain, above 1100 meters/second.
 sub anderson {
     my ($len, $diam, $vel, $material, $deg_angle, $scaling) = @_;
@@ -259,14 +259,14 @@ Based on Ogorkiewicz's book, _Design and Development of Fighting Vehicles_, and
 modified as per _Journal of Battlefield Technology_ Vol 1-1 pp 1.  A copy of 
 the JBT chart may be found at:
 
-http://ciar.org/ttk/mbt/news/news.smm.ww2-armor-plate.de5bf54f.0110271532.871cbf@posting.google.com.txt
+L<http://ciar.org/ttk/mbt/news/news.smm.ww2-armor-plate.de5bf54f.0110271532.871cbf@posting.google.com.txt>
 
 The author has modified this formula slightly to account for errors observed in
 Ogorkiewicz's results, relative to empirically derived results.
 
 For better understanding of shaped charge penetration, please review:
 
-http://www.globalsecurity.org/military/systems/munitions/bullets2-shaped-charge.htm
+L<http://www.globalsecurity.org/military/systems/munitions/bullets2-shaped-charge.htm>
 
 =over 4
 
@@ -898,9 +898,11 @@ that bullet mass really is that important when taking down very large animals).
 
 See also:
 
-http://www.hornady.com/hits
+L<http://www.hornady.com/hits>
 
-http://www.hornady.com/hits/calculator
+L<http://www.hornady.com/hits/calculator>
+
+L<http://www.rathcoombe.net/sci-tech/ballistics/myths.html>
 
 =over 4
 
@@ -910,7 +912,7 @@ parameter: (float) projectile velocity (in feet per second)
 
 parameter: (float) projectile diameter (in inches)
 
-returns: (integer) lethality (HITS score, qv table in http://www.hornady.com/hits)
+returns: (integer) lethality (HITS score, qv table in L<http://www.hornady.com/hits>)
 
 =back
 
@@ -1068,6 +1070,12 @@ C<THIS FUNCTION IS A WORK IN PROGRESS> and currently extremely simple.
 
 Its parameters and output are likely to change in incompatible ways in future releases.
 
+Note the caveats enumerated at L<http://www.rathcoombe.net/sci-tech/ballistics/myths.html>
+
+This function assumes nontrivial tissue penetration occurs.  For the moment it is based on observations of a very rough correlation between velocity and mass and permanent tissue cavity volume.
+
+See also Fackler: L<http://www.ciar.org/ttk/mbt/papers/misc/paper.x.small-arms.wounding-ballistics.patterns_of_military_rifle_bullets.fackler.unk.html>
+
 =over 4
 
 parameter: (integer) projectile weight (in grains)
@@ -1213,6 +1221,12 @@ Steel UTS PSI can be converted to other hardness ratings by first converting to 
 
 Approximation is accurate to within 2%.
 
+See also:
+
+L<http://www.monachos.gr/en/resources/hardness_conversion.asp>
+
+L<http://mdmetric.com/tech/hardness.htm>
+
 =over 4
 
 parameter: (integer) Pounds per square inch
@@ -1268,6 +1282,12 @@ sub psi2bhn { # very approximately converts steel uts psi to brinell hardness nu
 Given a Brinell Hardness Number hardness rating (via 10/3000 WC method), approximates the equivalent steel ultimate tensile strength in pounds per square inch.
 
 Approximation is accurate to within 2%.
+
+See also:
+
+L<http://www.monachos.gr/en/resources/hardness_conversion.asp>
+
+L<http://mdmetric.com/tech/hardness.htm>
 
 =over 4
 
