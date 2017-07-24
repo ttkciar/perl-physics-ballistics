@@ -11,7 +11,7 @@ use vars qw($VERSION $PI);
 use Math::Trig;
 
 BEGIN {
-    $VERSION = '1.01';
+    $VERSION = '1.02';
 }
 
 our $PI = Math::Trig::pi;

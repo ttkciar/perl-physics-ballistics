@@ -5,7 +5,7 @@ use vars qw($VERSION @ISA @EXPORT_OK);
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(ebc flight_simulator g1_drag muzzle_energy muzzle_velocity_from_energy);
-our $VERSION = '1.00';
+our $VERSION = '1.02';
 
 use Math::Trig qw(tan asin acos atan pi);
 use Physics::Ballistics;

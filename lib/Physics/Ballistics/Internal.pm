@@ -5,7 +5,7 @@ use vars qw($VERSION @ISA @EXPORT_OK);
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(cartridge_capacity empty_brass gunfire powley recoil_mbt cup2psi cup2psi_linear ogival_volume recoil_mbt);
-our $VERSION = '1.00';
+our $VERSION = '1.02';
 
 use Physics::Ballistics;
 use Math::Trig;

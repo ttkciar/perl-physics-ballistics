@@ -7,3 +7,8 @@
 1.01     2017-07-08
 - Fixed Physics::Ballistics package name.
 
+1.02     2017-07-14
+- pod2htmd.tmp: Removed turd file.
+- lib/Physics/Ballistics/Terminal.pm:  Added clarification to use of momentum in lethality function.
+- lib/Physics/Ballistics/Terminal.pm:  Added L<> notation to hyperlinks in poddoc.
+- added cpanfile
