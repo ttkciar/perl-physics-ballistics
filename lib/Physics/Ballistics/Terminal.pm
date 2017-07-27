@@ -1,11 +1,10 @@
 package Physics::Ballistics::Terminal;
 use strict;
 use warnings;
-use vars qw($VERSION @ISA @EXPORT);
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(anderson boxes heat_dop ke me2te me2ce me2cem odermatt pc pc_simple hits_score sigma average rndto r2d d2r poncelet te2me lethality hv2bhn bhn2hv hrc2bhn bhn2hrc psi2bhn bhn2psi);
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 use Physics::Ballistics;
 use Math::Trig;

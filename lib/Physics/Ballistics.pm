@@ -1,7 +1,6 @@
 package Physics::Ballistics;
 use strict;
 use warnings;
-use vars qw($VERSION $PI);
 
 # Work in progress; currently useless except for documentation.
 # Would like this to become an easy, powerful interface akin to http://www.shooterscalculator.com/ballistic-trajectory-chart.php?t=0c84354b
@@ -10,11 +9,9 @@ use vars qw($VERSION $PI);
 
 use Math::Trig;
 
-BEGIN {
-    $VERSION = '1.02';
-}
-
+our $VERSION = '1.03';
 our $PI = Math::Trig::pi;
+
 sub setundef { ${$_[0]} = $_[1] unless ( defined ( ${$_[0]} ) ); }
 sub absolute { $_[0] = 0 - $_[0] if ( $_[0] < 0 ); return $_[0]; }
 
